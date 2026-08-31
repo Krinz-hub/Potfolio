@@ -35,8 +35,22 @@ export function Portfolio() {
     return () => { window.cancelAnimationFrame(syncSound); window.removeEventListener("scroll", onScroll); };
   }, []);
 
-  const toggleSound = () => setSound((current) => { const next = !current; localStorage.setItem("dk-sound", next ? "on" : "off"); return next; });
-  const scrollTo = (id: string) => { document.getElementById(id)?.scrollIntoView({ behavior: "smooth" }); setMenuOpen(false); };
+  const playFeedback = (frequency = 420, force = false) => {
+    if (!sound && !force) return;
+    const AudioContextClass = window.AudioContext || (window as Window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
+    if (!AudioContextClass) return;
+    const context = new AudioContextClass();
+    const oscillator = context.createOscillator();
+    const gain = context.createGain();
+    oscillator.type = "square";
+    oscillator.frequency.value = frequency;
+    gain.gain.setValueAtTime(0.025, context.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, context.currentTime + 0.06);
+    oscillator.connect(gain).connect(context.destination);
+    oscillator.start(); oscillator.stop(context.currentTime + 0.065);
+  };
+  const toggleSound = () => { const next = !sound; setSound(next); localStorage.setItem("dk-sound", next ? "on" : "off"); if (next) playFeedback(660, true); };
+  const scrollTo = (id: string) => { playFeedback(330); document.getElementById(id)?.scrollIntoView({ behavior: "smooth" }); setMenuOpen(false); };
 
   return <main>
     <a className="skip-link" href="#content">Skip to content</a>
@@ -76,12 +90,12 @@ export function Portfolio() {
 
       <section className="section skill-section" id="stack">
         <div className="section-label">02 / SKILL TREE</div>
-        <div className="skill-layout"><div className="skill-list" role="tablist" aria-label="Skills">{skills.map((skill, index) => <button key={skill.name} role="tab" aria-selected={activeSkill === index} onClick={() => setActiveSkill(index)}><span>{String(index + 1).padStart(2, "0")}</span>{skill.name}<b>{skill.level}</b></button>)}</div><div className="skill-detail" role="tabpanel"><span className="detail-number">NODE_{String(activeSkill + 1).padStart(2, "0")}</span><h3>{skills[activeSkill].name}</h3><p>{skills[activeSkill].detail}</p><div>{skills[activeSkill].tools.map((tool) => <span className="tag" key={tool}>{tool}</span>)}</div></div></div>
+        <div className="skill-layout"><div className="skill-list" role="tablist" aria-label="Skills">{skills.map((skill, index) => <button key={skill.name} role="tab" aria-selected={activeSkill === index} onClick={() => { setActiveSkill(index); playFeedback(470); }}><span>{String(index + 1).padStart(2, "0")}</span>{skill.name}<b>{skill.level}</b></button>)}</div><div className="skill-detail" role="tabpanel"><span className="detail-number">NODE_{String(activeSkill + 1).padStart(2, "0")}</span><h3>{skills[activeSkill].name}</h3><p>{skills[activeSkill].detail}</p><div>{skills[activeSkill].tools.map((tool) => <span className="tag" key={tool}>{tool}</span>)}</div></div></div>
       </section>
 
       <section className="section projects" id="projects">
         <div className="section-label">03 / SELECT PROJECT</div>
-        <div className="project-layout"><div className="project-list" role="tablist" aria-label="Projects">{projects.map((item, index) => <button key={item.id} role="tab" aria-selected={activeProject === index} onClick={() => setActiveProject(index)}><span>{item.id}</span><b>{item.title}</b><i>→</i></button>)}</div><article className={`project-preview ${project.visual}`} role="tabpanel"><div className="project-art" aria-hidden="true"><span className="art-code">{project.id}</span><span className="art-window" /><span className="art-pixel p1" /><span className="art-pixel p2" /><span className="art-pixel p3" /></div><div className="project-content"><div className="project-meta"><span>PROJECT_{project.id}</span><b><i /> {project.status}</b></div><h3>{project.title}</h3><p>{project.description}</p><div className="tags">{project.technologies.map((technology, index) => <span key={`${technology}-${index}`}>{technology}</span>)}</div><div className="project-links"><a href={project.live} aria-label={`View ${project.title}`}>VIEW PROJECT <Arrow /></a><a href={project.source} aria-label={`View ${project.title} source`}>SOURCE <Arrow /></a></div></div></article></div>
+        <div className="project-layout"><div className="project-list" role="tablist" aria-label="Projects">{projects.map((item, index) => <button key={item.id} role="tab" aria-selected={activeProject === index} onClick={() => { setActiveProject(index); playFeedback(530); }}><span>{item.id}</span><b>{item.title}</b><i>→</i></button>)}</div><article className={`project-preview ${project.visual}`} role="tabpanel"><div className="project-art" aria-hidden="true"><span className="art-code">{project.id}</span><span className="art-window" /><span className="art-pixel p1" /><span className="art-pixel p2" /><span className="art-pixel p3" /></div><div className="project-content"><div className="project-meta"><span>PROJECT_{project.id}</span><b><i /> {project.status}</b></div><h3>{project.title}</h3><p>{project.description}</p><div className="tags">{project.technologies.map((technology, index) => <span key={`${technology}-${index}`}>{technology}</span>)}</div><div className="project-links"><a href={project.live} aria-label={`View ${project.title}`}>VIEW PROJECT <Arrow /></a><a href={project.source} aria-label={`View ${project.title} source`}>SOURCE <Arrow /></a></div></div></article></div>
       </section>
 
       <section className="section build-log">
