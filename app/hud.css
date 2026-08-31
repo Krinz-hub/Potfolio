@@ -1,0 +1,14 @@
+/* Keep the uploaded square portrait intact in the responsive hero HUD. */
+.pixel-orbit {
+  height: 260px;
+  background-color: #25324b;
+  background-repeat: no-repeat;
+  background-size: contain !important;
+  background-position: center !important;
+}
+
+@media (max-width: 760px) {
+  .pixel-orbit {
+    height: 210px;
+  }
+}

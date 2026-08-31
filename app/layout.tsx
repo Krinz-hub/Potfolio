@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import "./hud.css";
 
 export const metadata: Metadata = {
   title: "Dev Kansakar — AI, Automation & Creative Technology",
