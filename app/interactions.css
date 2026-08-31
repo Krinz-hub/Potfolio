@@ -1,2 +1,395 @@
-:root{--motion-instant:120ms;--motion-fast:180ms;--motion-normal:280ms;--motion-smooth:450ms}.pixel-cursor{display:none}@media (hover:hover) and (pointer:fine){html[data-cursor-ready] [data-cursor]{cursor:default}.pixel-cursor{display:grid;place-items:center;position:fixed;z-index:50;top:-15px;left:-15px;width:30px;height:30px;pointer-events:none;border:1px solid var(--green);color:var(--green);font:11px var(--mono);mix-blend-mode:screen;transition:width var(--motion-fast),height var(--motion-fast),border-color var(--motion-fast),background var(--motion-fast)}.pixel-cursor i{position:absolute;width:3px;height:3px;background:currentColor}.pixel-cursor i:nth-of-type(1){left:-4px;top:-4px}.pixel-cursor i:nth-of-type(2){right:-4px;top:-4px}.pixel-cursor i:nth-of-type(3){left:-4px;bottom:-4px}.pixel-cursor i:nth-of-type(4){right:-4px;bottom:-4px}.pixel-cursor[data-state=button],.pixel-cursor[data-state=project],.pixel-cursor[data-state=lab]{width:48px;height:26px;background:var(--ink)}.pixel-cursor[data-state=image],.pixel-cursor[data-state=profile]{width:42px;height:42px;border-color:var(--yellow);color:var(--yellow)}.pixel-cursor[data-state=nav],.pixel-cursor[data-state=link]{border-color:var(--blue);color:var(--blue)}.pixel-cursor[data-click]{animation:cursor-click 220ms steps(2)}@keyframes cursor-click{50%{transform:translate3d(var(--x,0),var(--y,0),0) scale(.6)}}}
-[data-magnetic]{transition:transform var(--motion-fast) ease-out}[data-magnetic]:active{transform:translateY(2px)!important}.site-header nav button.active{color:var(--green);position:relative}.site-header nav button.active:before{content:'●';position:absolute;left:-11px;color:var(--green)}.hero-copy>*{animation:boot-in .65s both}.hero-copy>*:nth-child(2){animation-delay:.1s}.hero-copy>*:nth-child(3){animation-delay:.24s}.hero-copy>*:nth-child(4){animation-delay:.34s}.hero-copy>*:nth-child(5){animation-delay:.43s}@keyframes boot-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}.hero-grid{animation:grid-drift 18s linear infinite}@keyframes grid-drift{to{background-position:46px 46px}}.section{scroll-margin-top:72px}.section.revealed .section-label{animation:label-in var(--motion-smooth) both}.section.revealed .profile-layout,.section.revealed .skill-layout,.section.revealed .project-layout,.section.revealed .terminal,.section.revealed .field-map,.section.revealed .experiment-grid{animation:panel-in .6s both}@keyframes label-in{from{opacity:0;letter-spacing:.3em}to{opacity:1}}@keyframes panel-in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}.profile-title span{display:inline-block;position:relative;transition:transform var(--motion-fast)}.profile-title span:hover,.profile-title span:focus-visible{transform:translateX(2px);color:var(--green);outline:none}.profile-title span:after{content:attr(data-note);position:absolute;left:0;top:100%;white-space:nowrap;color:var(--orange);font:10px var(--mono);letter-spacing:.06em;opacity:0;transform:translateY(-3px);transition:opacity var(--motion-fast),transform var(--motion-fast)}.profile-title span:hover:after,.profile-title span:focus-visible:after{opacity:1;transform:none}.pixel-orbit{transition:border-color var(--motion-fast),transform var(--motion-fast),background-position var(--motion-smooth)}.pixel-orbit:hover{border-color:var(--yellow);transform:translate(-2px,-2px);background-position:center 45%!important}.pixel-orbit:before{content:'PLAYER 01 / STATUS ONLINE';position:absolute;z-index:2;bottom:7px;left:8px;padding:3px 5px;background:var(--ink);color:var(--green);font:9px var(--mono);opacity:0;transition:opacity var(--motion-fast)}.pixel-orbit:hover:before{opacity:1}.project-preview{position:relative;transition:opacity var(--motion-fast)}.project-preview.transitioning{opacity:.45}.project-preview.transitioning:after{content:'LOADING...';position:absolute;inset:0;display:grid;place-items:center;background:rgba(16,23,41,.55);font:13px var(--mono);color:var(--green)}.project-art{transition:transform var(--motion-normal)}.project-preview:hover .project-art{transform:translate(2px,-2px)}.project-meta b{animation:status-on .45s both}@keyframes status-on{from{opacity:0;transform:translateX(6px)}to{opacity:1;transform:none}}.skill-list button:focus-visible,.project-list button:focus-visible,.field-map button:focus-visible,.experiment-grid button:focus-visible{outline:2px solid var(--green);outline-offset:-3px}.field-map button{border:0;background:transparent;color:inherit;font:inherit;padding:4px 8px}.field-map button.active{background:var(--green);color:var(--ink);transform:rotate(-2deg)}.tech-copy{margin-top:22px;min-height:42px;color:var(--green);font:13px var(--mono)}.terminal-lines{min-height:104px;color:#c9d0df;line-height:1.8}.terminal-lines p{margin:0}.terminal-cursor{color:var(--green);animation:blink 1s steps(2) infinite}.experiment-grid article{cursor:default}.experiment-grid article.active{background:var(--yellow);transform:translateY(-4px);box-shadow:5px 5px 0 var(--ink)}.lab-dialog{position:fixed;z-index:20;inset:0;display:grid;place-items:center;padding:20px;background:rgba(16,23,41,.75)}.lab-dialog>div{max-width:470px;border:1px solid var(--ink);background:var(--paper);color:var(--ink);padding:28px;box-shadow:8px 8px 0 var(--pink)}.lab-dialog h3{font-size:34px;margin:18px 0 10px}.lab-dialog button{border:1px solid var(--ink);background:transparent;padding:10px 12px;font:11px var(--mono)}.contact.revealed .email-link{animation:contact-on .7s both}@keyframes contact-on{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:none}}.system-state{font:10px var(--mono);color:var(--green);margin:22px 0 0}.achievement{pointer-events:none}.achievement span{font:10px var(--mono);color:var(--paper)}@media (max-width:760px){.hero-grid{animation:none}.profile-title span:after{display:none}.field-map button{min-height:44px}.contact .email-link{min-height:44px;display:inline-flex;align-items:center}.project-preview:hover .project-art{transform:none}}@media (prefers-reduced-motion:reduce){.hero-copy>*,.hero-grid,.section.revealed .section-label,.section.revealed .profile-layout,.section.revealed .skill-layout,.section.revealed .project-layout,.section.revealed .terminal,.section.revealed .field-map,.section.revealed .experiment-grid,.project-meta b,.contact.revealed .email-link{animation:none!important}.pixel-orbit,.project-art,[data-magnetic]{transition:none!important}}
+:root {
+  --motion-instant: 120ms;
+  --motion-fast: 180ms;
+  --motion-normal: 280ms;
+  --motion-smooth: 450ms;
+}
+.pixel-cursor {
+  display: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  html[data-cursor-ready] [data-cursor] {
+    cursor: default;
+  }
+  .pixel-cursor {
+    display: grid;
+    place-items: center;
+    position: fixed;
+    z-index: 50;
+    top: -15px;
+    left: -15px;
+    width: 30px;
+    height: 30px;
+    pointer-events: none;
+    border: 1px solid var(--green);
+    color: var(--green);
+    font: 11px var(--mono);
+    mix-blend-mode: screen;
+    transition:
+      width var(--motion-fast),
+      height var(--motion-fast),
+      border-color var(--motion-fast),
+      background var(--motion-fast);
+  }
+  .pixel-cursor i {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: currentColor;
+  }
+  .pixel-cursor i:nth-of-type(1) {
+    left: -4px;
+    top: -4px;
+  }
+  .pixel-cursor i:nth-of-type(2) {
+    right: -4px;
+    top: -4px;
+  }
+  .pixel-cursor i:nth-of-type(3) {
+    left: -4px;
+    bottom: -4px;
+  }
+  .pixel-cursor i:nth-of-type(4) {
+    right: -4px;
+    bottom: -4px;
+  }
+  .pixel-cursor[data-state="button"],
+  .pixel-cursor[data-state="project"],
+  .pixel-cursor[data-state="lab"] {
+    width: 48px;
+    height: 26px;
+    background: var(--ink);
+  }
+  .pixel-cursor[data-state="image"],
+  .pixel-cursor[data-state="profile"] {
+    width: 42px;
+    height: 42px;
+    border-color: var(--yellow);
+    color: var(--yellow);
+  }
+  .pixel-cursor[data-state="nav"],
+  .pixel-cursor[data-state="link"] {
+    border-color: var(--blue);
+    color: var(--blue);
+  }
+  .pixel-cursor[data-click] {
+    animation: cursor-click 220ms steps(2);
+  }
+  @keyframes cursor-click {
+    50% {
+      transform: translate3d(var(--x, 0), var(--y, 0), 0) scale(0.6);
+    }
+  }
+}
+[data-magnetic] {
+  transition: transform var(--motion-fast) ease-out;
+}
+[data-magnetic]:active {
+  transform: translateY(2px) !important;
+}
+.site-header nav button.active {
+  color: var(--green);
+  position: relative;
+}
+.site-header nav button.active:before {
+  content: "●";
+  position: absolute;
+  left: -11px;
+  color: var(--green);
+}
+.hero-copy > * {
+  animation: boot-in 0.65s both;
+}
+.hero-copy > *:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.hero-copy > *:nth-child(3) {
+  animation-delay: 0.24s;
+}
+.hero-copy > *:nth-child(4) {
+  animation-delay: 0.34s;
+}
+.hero-copy > *:nth-child(5) {
+  animation-delay: 0.43s;
+}
+@keyframes boot-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.hero-grid {
+  animation: grid-drift 18s linear infinite;
+}
+@keyframes grid-drift {
+  to {
+    background-position: 46px 46px;
+  }
+}
+.section {
+  scroll-margin-top: 72px;
+}
+.section.revealed .section-label {
+  animation: label-in var(--motion-smooth) both;
+}
+.section.revealed .profile-layout,
+.section.revealed .skill-layout,
+.section.revealed .project-layout,
+.section.revealed .terminal,
+.section.revealed .field-map,
+.section.revealed .experiment-grid {
+  animation: panel-in 0.6s both;
+}
+@keyframes label-in {
+  from {
+    opacity: 0;
+    letter-spacing: 0.3em;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.profile-title span {
+  display: inline-block;
+  position: relative;
+  transition: transform var(--motion-fast);
+}
+.profile-title span:hover,
+.profile-title span:focus-visible {
+  transform: translateX(2px);
+  color: var(--green);
+  outline: none;
+}
+.profile-title span:after {
+  content: attr(data-note);
+  position: absolute;
+  left: 0;
+  top: 100%;
+  white-space: nowrap;
+  color: var(--orange);
+  font: 10px var(--mono);
+  letter-spacing: 0.06em;
+  opacity: 0;
+  transform: translateY(-3px);
+  transition:
+    opacity var(--motion-fast),
+    transform var(--motion-fast);
+}
+.profile-title span:hover:after,
+.profile-title span:focus-visible:after {
+  opacity: 1;
+  transform: none;
+}
+.pixel-orbit {
+  transition:
+    border-color var(--motion-fast),
+    transform var(--motion-fast),
+    background-position var(--motion-smooth);
+}
+.pixel-orbit:hover {
+  border-color: var(--yellow);
+  transform: translate(-2px, -2px);
+  background-position: center 45% !important;
+}
+.pixel-orbit:before {
+  content: "PLAYER 01 / STATUS ONLINE";
+  position: absolute;
+  z-index: 2;
+  bottom: 7px;
+  left: 8px;
+  padding: 3px 5px;
+  background: var(--ink);
+  color: var(--green);
+  font: 9px var(--mono);
+  opacity: 0;
+  transition: opacity var(--motion-fast);
+}
+.pixel-orbit:hover:before {
+  opacity: 1;
+}
+.project-preview {
+  position: relative;
+  transition: opacity var(--motion-fast);
+}
+.project-preview.transitioning {
+  opacity: 0.45;
+}
+.project-preview.transitioning:after {
+  content: "LOADING...";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(16, 23, 41, 0.55);
+  font: 13px var(--mono);
+  color: var(--green);
+}
+.project-art {
+  transition: transform var(--motion-normal);
+}
+.project-preview:hover .project-art {
+  transform: translate(2px, -2px);
+}
+.project-meta b {
+  animation: status-on 0.45s both;
+}
+@keyframes status-on {
+  from {
+    opacity: 0;
+    transform: translateX(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.skill-list button:focus-visible,
+.project-list button:focus-visible,
+.field-map button:focus-visible,
+.experiment-grid button:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: -3px;
+}
+.field-map button {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  padding: 4px 8px;
+}
+.field-map button.active {
+  background: var(--green);
+  color: var(--ink);
+  transform: rotate(-2deg);
+}
+.tech-copy {
+  margin-top: 22px;
+  min-height: 42px;
+  color: var(--green);
+  font: 13px var(--mono);
+}
+.terminal-lines {
+  min-height: 104px;
+  color: #c9d0df;
+  line-height: 1.8;
+}
+.terminal-lines p {
+  margin: 0;
+}
+.terminal-cursor {
+  color: var(--green);
+  animation: blink 1s steps(2) infinite;
+}
+.experiment-grid article {
+  cursor: default;
+}
+.experiment-grid article.active {
+  background: var(--yellow);
+  transform: translateY(-4px);
+  box-shadow: 5px 5px 0 var(--ink);
+}
+.lab-dialog {
+  position: fixed;
+  z-index: 20;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(16, 23, 41, 0.75);
+}
+.lab-dialog > div {
+  max-width: 470px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  padding: 28px;
+  box-shadow: 8px 8px 0 var(--pink);
+}
+.lab-dialog h3 {
+  font-size: 34px;
+  margin: 18px 0 10px;
+}
+.lab-dialog button {
+  border: 1px solid var(--ink);
+  background: transparent;
+  padding: 10px 12px;
+  font: 11px var(--mono);
+}
+.contact.revealed .email-link {
+  animation: contact-on 0.7s both;
+}
+@keyframes contact-on {
+  from {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.system-state {
+  font: 10px var(--mono);
+  color: var(--green);
+  margin: 22px 0 0;
+}
+.achievement {
+  pointer-events: none;
+}
+.achievement span {
+  font: 10px var(--mono);
+  color: var(--paper);
+}
+@media (max-width: 760px) {
+  .hero-grid {
+    animation: none;
+  }
+  .profile-title span:after {
+    display: none;
+  }
+  .field-map button {
+    min-height: 44px;
+  }
+  .contact .email-link {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .project-preview:hover .project-art {
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-copy > *,
+  .hero-grid,
+  .section.revealed .section-label,
+  .section.revealed .profile-layout,
+  .section.revealed .skill-layout,
+  .section.revealed .project-layout,
+  .section.revealed .terminal,
+  .section.revealed .field-map,
+  .section.revealed .experiment-grid,
+  .project-meta b,
+  .contact.revealed .email-link {
+    animation: none !important;
+  }
+  .pixel-orbit,
+  .project-art,
+  [data-magnetic] {
+    transition: none !important;
+  }
+}
