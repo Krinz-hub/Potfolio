@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "lint": "eslint .",
-    "deploy": "next build && wrangler deploy",
+    "deploy": "wrangler deploy",
     "preview": "wrangler dev"
   },
   "dependencies": {
@@ -20,6 +20,7 @@
     "@types/react-dom": "^19.0.2",
     "eslint": "^9.17.0",
     "eslint-config-next": "16.1.1",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "wrangler": "^4.127.1"
   }
 }
