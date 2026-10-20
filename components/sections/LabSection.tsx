@@ -47,7 +47,7 @@ export function LabSection({
           style={{
             fontFamily: "var(--font-body)",
             fontSize: "1.45rem",
-            color: "#444",
+            color: "var(--fg-muted)",
             maxWidth: "750px",
             marginBottom: "2.5rem",
           }}
@@ -95,7 +95,7 @@ export function LabSection({
                       style={{
                         fontFamily: "var(--font-heading)",
                         fontSize: "0.95rem",
-                        color: "#888",
+                        color: "var(--fg-subtle)",
                       }}
                     >
                       LAB NOTE
@@ -118,7 +118,7 @@ export function LabSection({
                       fontFamily: "var(--font-body)",
                       fontSize: "1.25rem",
                       lineHeight: 1.5,
-                      color: "#444",
+                      color: "var(--fg-muted)",
                       marginBottom: "1.5rem",
                     }}
                   >
@@ -211,7 +211,7 @@ export function LabSection({
                   fontFamily: "var(--font-body)",
                   fontSize: "1.4rem",
                   lineHeight: 1.6,
-                  color: "#333",
+                  color: "var(--fg-pencil)",
                   marginBottom: "1rem",
                 }}
               >
@@ -220,14 +220,14 @@ export function LabSection({
 
               <div
                 style={{
-                  backgroundColor: "#ffffff",
+                  backgroundColor: "var(--card-bg)",
                   border: "2px dashed var(--border-pencil)",
                   borderRadius: "var(--radius-wobbly)",
                   padding: "1rem",
                   marginBottom: "1.5rem",
                   fontFamily: "var(--font-body)",
                   fontSize: "1.2rem",
-                  color: "#555",
+                  color: "var(--fg-muted)",
                 }}
               >
                 ✎ Note: This is an active laboratory prototype. When new findings or code

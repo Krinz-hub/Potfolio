@@ -13,10 +13,11 @@ export function Footer({ name, onScrollToTop }: FooterProps) {
     <footer
       style={{
         borderTop: "3px dashed var(--border-pencil)",
-        backgroundColor: "rgba(253, 251, 247, 0.95)",
+        backgroundColor: "var(--header-bg)",
         paddingTop: "2.5rem",
         paddingBottom: "2.5rem",
         marginTop: "3rem",
+        transition: "var(--theme-transition)",
       }}
     >
       <div
@@ -47,7 +48,7 @@ export function Footer({ name, onScrollToTop }: FooterProps) {
             style={{
               fontFamily: "var(--font-body)",
               fontSize: "1.15rem",
-              color: "#666",
+              color: "var(--fg-muted)",
               margin: 0,
             }}
           >
@@ -60,7 +61,7 @@ export function Footer({ name, onScrollToTop }: FooterProps) {
             style={{
               fontFamily: "var(--font-heading)",
               fontSize: "1rem",
-              color: "#888",
+              color: "var(--fg-subtle)",
             }}
           >
             © {new Date().getFullYear()} ALL SKETCHES RESERVED

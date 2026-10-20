@@ -1,22 +1,29 @@
 /* ==========================================================================
    HAND-DRAWN DESIGN SYSTEM — DESIGN TOKENS & UTILITIES
-   Theme: Warm Paper, Pencil Lead, Marker Highlights, Irregular Wobbly Shapes
+   Theme: Warm Paper (Light) & Blackboard Chalk / Charcoal Sketchpad (Dark)
    ========================================================================== */
 
 @import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Kalam:wght@400;700&family=Patrick+Hand&display=swap");
 
 :root {
-  /* Colors */
+  /* Colors - Light (Warm Paper & Pencil) */
   --bg-paper: #fdfbf7;
   --fg-pencil: #2d2d2d;
+  --fg-muted: #5e5954;
+  --fg-subtle: #8a837a;
   --muted-paper: #e5e0d8;
   --accent-marker: #ff4d4d;
   --accent-pen: #2d5da1;
   --postit-yellow: #fff9c4;
   --card-bg: #ffffff;
+  --card-tint: #faf7f0;
   --tape-bg: rgba(229, 224, 216, 0.85);
   --tape-border: rgba(45, 45, 45, 0.15);
   --border-pencil: #2d2d2d;
+  --tag-marker-bg: #ffe5e5;
+  --tag-pen-bg: #e5efff;
+  --header-bg: rgba(253, 251, 247, 0.92);
+  --shadow-color: #2d2d2d;
 
   /* Typography */
   --font-heading: "Kalam", cursive, sans-serif;
@@ -32,17 +39,75 @@
   --radius-wobbly-circle: 52% 48% 51% 49% / 49% 53% 47% 51%;
 
   /* Hard Offset Shadows - NO BLUR */
-  --shadow-hard: 4px 4px 0px 0px var(--fg-pencil);
-  --shadow-hard-sm: 2px 2px 0px 0px var(--fg-pencil);
-  --shadow-hard-lg: 8px 8px 0px 0px var(--fg-pencil);
+  --shadow-hard: 4px 4px 0px 0px var(--shadow-color);
+  --shadow-hard-sm: 2px 2px 0px 0px var(--shadow-color);
+  --shadow-hard-lg: 8px 8px 0px 0px var(--shadow-color);
   --shadow-subtle: 3px 3px 0px 0px rgba(45, 45, 45, 0.12);
   --shadow-postit: 4px 6px 0px 0px rgba(45, 45, 45, 0.15);
 
   /* Transitions */
   --snappy: 120ms ease;
+  --theme-transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
 }
 
-/* Base Resets & Warm Paper Background */
+/* ==========================================================================
+   DARK MODE — Charcoal Blackboard / Night Sketchbook Palette
+   ========================================================================== */
+[data-theme="dark"] {
+  --bg-paper: #161514;
+  --fg-pencil: #f4ede2;
+  --fg-muted: #b8b1a5;
+  --fg-subtle: #8a8479;
+  --muted-paper: #2d2b28;
+  --accent-marker: #ff6e6e;
+  --accent-pen: #68a5ff;
+  --postit-yellow: #322c1b;
+  --card-bg: #211f1d;
+  --card-tint: #1b1918;
+  --tape-bg: rgba(75, 71, 66, 0.85);
+  --tape-border: rgba(244, 237, 226, 0.2);
+  --border-pencil: #f4ede2;
+  --tag-marker-bg: #381d1d;
+  --tag-pen-bg: #1a2b42;
+  --header-bg: rgba(22, 21, 20, 0.94);
+  --shadow-color: #000000;
+
+  --shadow-hard: 4px 4px 0px 0px var(--shadow-color);
+  --shadow-hard-sm: 2px 2px 0px 0px var(--shadow-color);
+  --shadow-hard-lg: 8px 8px 0px 0px var(--shadow-color);
+  --shadow-subtle: 3px 3px 0px 0px rgba(0, 0, 0, 0.5);
+  --shadow-postit: 4px 6px 0px 0px rgba(0, 0, 0, 0.6);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg-paper: #161514;
+    --fg-pencil: #f4ede2;
+    --fg-muted: #b8b1a5;
+    --fg-subtle: #8a8479;
+    --muted-paper: #2d2b28;
+    --accent-marker: #ff6e6e;
+    --accent-pen: #68a5ff;
+    --postit-yellow: #322c1b;
+    --card-bg: #211f1d;
+    --card-tint: #1b1918;
+    --tape-bg: rgba(75, 71, 66, 0.85);
+    --tape-border: rgba(244, 237, 226, 0.2);
+    --border-pencil: #f4ede2;
+    --tag-marker-bg: #381d1d;
+    --tag-pen-bg: #1a2b42;
+    --header-bg: rgba(22, 21, 20, 0.94);
+    --shadow-color: #000000;
+
+    --shadow-hard: 4px 4px 0px 0px var(--shadow-color);
+    --shadow-hard-sm: 2px 2px 0px 0px var(--shadow-color);
+    --shadow-hard-lg: 8px 8px 0px 0px var(--shadow-color);
+    --shadow-subtle: 3px 3px 0px 0px rgba(0, 0, 0, 0.5);
+    --shadow-postit: 4px 6px 0px 0px rgba(0, 0, 0, 0.6);
+  }
+}
+
+/* Base Resets & Paper Texture */
 * {
   box-sizing: border-box;
 }
@@ -62,6 +127,7 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
+  transition: var(--theme-transition);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -191,7 +257,7 @@ button {
 
 .hand-btn-pen:hover {
   background-color: var(--fg-pencil);
-  color: var(--postit-yellow);
+  color: var(--bg-paper);
 }
 
 .hand-btn-sm {
@@ -210,25 +276,31 @@ button {
 .hand-card {
   position: relative;
   background: var(--card-bg);
+  color: var(--fg-pencil);
   border: 2px solid var(--border-pencil);
   border-radius: var(--radius-wobbly-md);
   box-shadow: var(--shadow-hard);
   padding: 1.75rem;
-  transition: transform var(--snappy), box-shadow var(--snappy);
+  transition: transform var(--snappy), box-shadow var(--snappy), background-color 200ms ease, border-color 200ms ease;
 }
 
 .hand-card:hover {
   transform: translateY(-2px) rotate(0.5deg);
-  box-shadow: var(--shadow-hover);
+  box-shadow: var(--shadow-hard-lg);
 }
 
 .hand-card-postit {
   background-color: var(--postit-yellow);
+  color: var(--fg-pencil);
   box-shadow: var(--shadow-postit);
 }
 
+[data-theme="dark"] .hand-card-postit {
+  border-color: #e2ba49;
+}
+
 .hand-card-postit:hover {
-  box-shadow: 6px 8px 0px 0px rgba(45, 45, 45, 0.18);
+  box-shadow: 6px 8px 0px 0px rgba(0, 0, 0, 0.4);
 }
 
 /* Tape Decoration */
@@ -240,9 +312,9 @@ button {
   width: 90px;
   height: 24px;
   background: var(--tape-bg);
-  border-left: 2px dashed rgba(45, 45, 45, 0.25);
-  border-right: 2px dashed rgba(45, 45, 45, 0.25);
-  box-shadow: 0 1px 3px var(--tape-shadow);
+  border-left: 2px dashed var(--tape-border);
+  border-right: 2px dashed var(--tape-border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
   z-index: 2;
   pointer-events: none;
 }
@@ -255,8 +327,8 @@ button {
   height: 22px;
   background: var(--tape-bg);
   transform: rotate(42deg);
-  border-left: 2px dashed rgba(45, 45, 45, 0.2);
-  border-right: 2px dashed rgba(45, 45, 45, 0.2);
+  border-left: 2px dashed var(--tape-border);
+  border-right: 2px dashed var(--tape-border);
   z-index: 2;
   pointer-events: none;
 }
@@ -272,7 +344,7 @@ button {
   background: var(--accent-marker);
   border: 2px solid var(--border-pencil);
   border-radius: 50%;
-  box-shadow: 2px 2px 0px 0px var(--border-pencil);
+  box-shadow: 2px 2px 0px 0px var(--shadow-color);
   z-index: 3;
   pointer-events: none;
 }
@@ -283,7 +355,7 @@ button {
   left: 3px;
   width: 5px;
   height: 5px;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.85);
   border-radius: 50%;
 }
 
@@ -314,6 +386,9 @@ button {
   border-top: 14px solid var(--card-bg);
   z-index: 1;
 }
+.speech-bubble.hand-card-postit::before {
+  border-top-color: var(--postit-yellow);
+}
 
 /* Hand Drawn Badges & Tags */
 .hand-tag {
@@ -328,24 +403,25 @@ button {
   border-radius: var(--radius-wobbly-pill);
   background: var(--card-bg);
   color: var(--fg-pencil);
-  box-shadow: 2px 2px 0px 0px var(--border-pencil);
+  box-shadow: 2px 2px 0px 0px var(--shadow-color);
   line-height: 1.2;
 }
 
 .hand-tag-marker {
-  background: #ffe5e5;
+  background: var(--tag-marker-bg);
   border-color: var(--accent-marker);
   color: var(--accent-marker);
 }
 
 .hand-tag-pen {
-  background: #e5efff;
+  background: var(--tag-pen-bg);
   border-color: var(--accent-pen);
   color: var(--accent-pen);
 }
 
 .hand-tag-yellow {
   background: var(--postit-yellow);
+  color: var(--fg-pencil);
 }
 
 .hand-tag-dashed {
@@ -399,8 +475,8 @@ button {
 }
 
 .hand-stamp-green {
-  border-color: #2b825b;
-  color: #2b825b;
+  border-color: #3bb273;
+  color: #3bb273;
   transform: rotate(2deg);
 }
 
@@ -472,10 +548,11 @@ button {
   position: sticky;
   top: 0;
   z-index: 50;
-  background-color: rgba(253, 251, 247, 0.92);
+  background-color: var(--header-bg);
   backdrop-filter: blur(8px);
   border-bottom: 2px dashed var(--border-pencil);
   padding: 0.75rem 0;
+  transition: var(--theme-transition);
 }
 
 .hand-nav-row {
@@ -499,7 +576,7 @@ button {
   font-weight: 700;
   color: var(--fg-pencil);
   transform: rotate(-2deg);
-  transition: transform var(--snappy);
+  transition: transform var(--snappy), var(--theme-transition);
 }
 .hand-logo:hover {
   transform: rotate(4deg) scale(1.08);
@@ -533,7 +610,7 @@ button {
   text-underline-offset: 4px;
 }
 
-/* Interactive Sound & Menu */
+/* Interactive Controls */
 .hand-controls {
   display: flex;
   align-items: center;
@@ -547,6 +624,7 @@ button {
   right: 20px;
   z-index: 100;
   background: var(--postit-yellow);
+  color: var(--fg-pencil);
   border: 2px solid var(--border-pencil);
   border-radius: var(--radius-wobbly-md);
   box-shadow: var(--shadow-hard);
@@ -582,7 +660,7 @@ button {
   bottom: 24px;
   right: 24px;
   z-index: 100;
-  background: #ffecb3;
+  background: var(--postit-yellow);
   border: 3px dashed var(--accent-pen);
   border-radius: var(--radius-wobbly);
   padding: 0.6rem 1.2rem;
@@ -659,4 +737,3 @@ button {
     grid-template-columns: 1fr 1.4fr !important;
   }
 }
-

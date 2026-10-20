@@ -29,7 +29,7 @@ export function ContactSection({ email, social }: ContactSectionProps) {
             padding: "clamp(2rem, 5vw, 3.5rem)",
             position: "relative",
             overflow: "hidden",
-            backgroundColor: "#fffdf9",
+            backgroundColor: "var(--card-bg)",
           }}
         >
           {/* Postcard Stamp at Top-Right */}
@@ -46,7 +46,7 @@ export function ContactSection({ email, social }: ContactSectionProps) {
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
-              backgroundColor: "#fff0f0",
+              backgroundColor: "var(--tag-marker-bg)",
               transform: "rotate(4deg)",
               boxShadow: "2px 2px 0px 0px var(--border-pencil)",
             }}
@@ -92,7 +92,7 @@ export function ContactSection({ email, social }: ContactSectionProps) {
               fontFamily: "var(--font-body)",
               fontSize: "1.5rem",
               lineHeight: 1.6,
-              color: "#444",
+              color: "var(--fg-muted)",
               maxWidth: "650px",
               marginBottom: "2rem",
             }}
@@ -152,7 +152,7 @@ export function ContactSection({ email, social }: ContactSectionProps) {
                 style={{
                   fontFamily: "var(--font-heading)",
                   fontSize: "1.15rem",
-                  color: "#666",
+                  color: "var(--fg-subtle)",
                 }}
               >
                 SOCIAL DISPATCH:

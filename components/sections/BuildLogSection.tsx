@@ -43,7 +43,7 @@ export function BuildLogSection({ terminalLines }: BuildLogSectionProps) {
             tilt="none"
             style={{
               padding: "clamp(1.5rem, 3.5vw, 2.5rem)",
-              backgroundColor: "#fefdfa",
+              backgroundColor: "var(--card-bg)",
             }}
           >
             {/* Header bar */}
@@ -126,14 +126,14 @@ export function BuildLogSection({ terminalLines }: BuildLogSectionProps) {
                   borderBottom: "1px dashed var(--muted-paper)",
                 }}
               >
-                <span style={{ fontFamily: "var(--font-heading)", color: "#777" }}>
+                <span style={{ fontFamily: "var(--font-heading)", color: "var(--fg-subtle)" }}>
                   CURRENT FOCUS:
                 </span>
                 <span style={{ fontWeight: "bold", color: "var(--fg-pencil)" }}>
                   AI Workflows, APIs & Polished Web Systems
                 </span>
 
-                <span style={{ fontFamily: "var(--font-heading)", color: "#777" }}>
+                <span style={{ fontFamily: "var(--font-heading)", color: "var(--fg-subtle)" }}>
                   PROGRESS:
                 </span>
                 <span style={{ fontFamily: "var(--font-mono)", color: "var(--accent-marker)" }}>
@@ -144,7 +144,7 @@ export function BuildLogSection({ terminalLines }: BuildLogSectionProps) {
               {/* Step lines */}
               <div
                 style={{
-                  backgroundColor: "#f7f4ec",
+                  backgroundColor: "var(--card-tint)",
                   border: "2px dashed var(--border-pencil)",
                   borderRadius: "var(--radius-wobbly)",
                   padding: "1rem 1.25rem",

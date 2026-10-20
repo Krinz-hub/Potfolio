@@ -104,7 +104,7 @@ export function HeroSection({
                 style={{
                   fontFamily: "var(--font-body)",
                   fontSize: "1.25rem",
-                  color: "#555",
+                  color: "var(--fg-muted)",
                 }}
               >
                 Focus:
@@ -183,7 +183,7 @@ export function HeroSection({
                   height: "260px",
                   borderRadius: "var(--radius-wobbly)",
                   border: "2px dashed var(--border-pencil)",
-                  backgroundColor: "#f4ede2",
+                  backgroundColor: "var(--card-tint)",
                   backgroundImage: "url('/images/dev-kansakar.png')",
                   backgroundSize: "cover",
                   backgroundPosition: "center 25%",
@@ -318,7 +318,7 @@ export function HeroSection({
                   borderTop: "1px dashed rgba(45, 45, 45, 0.2)",
                   fontFamily: "var(--font-heading)",
                   fontSize: "0.95rem",
-                  color: "#666",
+                  color: "var(--fg-subtle)",
                   textAlign: "center",
                 }}
               >

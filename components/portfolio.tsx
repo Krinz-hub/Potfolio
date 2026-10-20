@@ -33,6 +33,7 @@ export function Portfolio() {
   const [activeTech, setActiveTech] = useState("AI");
   const [activeLab, setActiveLab] = useState<ExperimentItem | null>(null);
   const [sound, setSound] = useState(false);
+  const [theme, setTheme] = useState<"light" | "dark">("light");
   const [menuOpen, setMenuOpen] = useState(false);
   const [progress, setProgress] = useState(0);
   const [achievement, setAchievement] = useState<string | null>(null);
@@ -89,6 +90,16 @@ export function Portfolio() {
       setSound(soundPreference),
     );
 
+    const savedTheme = localStorage.getItem("dk-theme") as "light" | "dark" | null;
+    const initialTheme =
+      savedTheme ||
+      (window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light");
+    setTheme(initialTheme);
+    document.documentElement.setAttribute("data-theme", initialTheme);
+    document.documentElement.style.colorScheme = initialTheme;
+
     const onScroll = () => {
       const max = document.documentElement.scrollHeight - window.innerHeight;
       setProgress(
@@ -144,6 +155,16 @@ export function Portfolio() {
     setSound(next);
     localStorage.setItem("dk-sound", next ? "on" : "off");
     if (next) playFeedback(660, true);
+  };
+
+  const toggleTheme = () => {
+    const next = theme === "dark" ? "light" : "dark";
+    setTheme(next);
+    localStorage.setItem("dk-theme", next);
+    document.documentElement.setAttribute("data-theme", next);
+    document.documentElement.style.colorScheme = next;
+    playFeedback(next === "dark" ? 360 : 720);
+    unlock(next === "dark" ? "CHALKBOARD MODE" : "WARM PAPER MODE");
   };
 
   const scrollTo = (id: string) => {
@@ -220,10 +241,12 @@ export function Portfolio() {
         initials={profile.initials}
         activeSection={activeSection}
         sound={sound}
+        theme={theme}
         menuOpen={menuOpen}
         onLogoClick={handleLogoClick}
         onNavClick={scrollTo}
         onToggleSound={toggleSound}
+        onToggleTheme={toggleTheme}
         onToggleMenu={() => setMenuOpen(!menuOpen)}
       />
 

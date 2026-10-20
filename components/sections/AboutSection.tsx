@@ -55,7 +55,7 @@ export function AboutSection({ statement, facts }: AboutSectionProps) {
               >
                 <span
                   style={{
-                    backgroundColor: "#ffe5e5",
+                    backgroundColor: "var(--tag-marker-bg)",
                     padding: "0.1rem 0.5rem",
                     borderRadius: "4px",
                     border: "2px solid var(--accent-marker)",
@@ -65,7 +65,7 @@ export function AboutSection({ statement, facts }: AboutSectionProps) {
                 </span>{" "}
                 <span
                   style={{
-                    backgroundColor: "#e5efff",
+                    backgroundColor: "var(--tag-pen-bg)",
                     padding: "0.1rem 0.5rem",
                     borderRadius: "4px",
                     border: "2px solid var(--accent-pen)",
@@ -78,7 +78,7 @@ export function AboutSection({ statement, facts }: AboutSectionProps) {
                     backgroundColor: "var(--postit-yellow)",
                     padding: "0.1rem 0.5rem",
                     borderRadius: "4px",
-                    border: "2px solid #2d2d2d",
+                    border: "2px solid var(--border-pencil)",
                   }}
                 >
                   SYSTEM THINKER.
@@ -103,7 +103,7 @@ export function AboutSection({ statement, facts }: AboutSectionProps) {
                 fontFamily: "var(--font-body)",
                 fontSize: "1.3rem",
                 lineHeight: 1.6,
-                color: "#444",
+                color: "var(--fg-muted)",
                 marginTop: "1rem",
               }}
             >

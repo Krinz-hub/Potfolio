@@ -7,10 +7,12 @@ interface HeaderProps {
   initials: string;
   activeSection: string;
   sound: boolean;
+  theme: "light" | "dark";
   menuOpen: boolean;
   onLogoClick: () => void;
   onNavClick: (targetId: string) => void;
   onToggleSound: () => void;
+  onToggleTheme: () => void;
   onToggleMenu: () => void;
 }
 
@@ -27,10 +29,12 @@ export function Header({
   initials,
   activeSection,
   sound,
+  theme,
   menuOpen,
   onLogoClick,
   onNavClick,
   onToggleSound,
+  onToggleTheme,
   onToggleMenu,
 }: HeaderProps) {
   return (
@@ -80,6 +84,17 @@ export function Header({
             ONLINE
           </span>
 
+          {/* Theme Toggle Button */}
+          <HandButton
+            variant="secondary"
+            size="sm"
+            onClick={onToggleTheme}
+            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+            title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+          >
+            {theme === "dark" ? "☀️ LIGHT" : "🌙 DARK"}
+          </HandButton>
+
           <HandButton
             variant="secondary"
             size="sm"
@@ -88,7 +103,7 @@ export function Header({
             aria-label="Toggle sound feedback"
             title="Toggle synthesizer sounds"
           >
-            ♪ {sound ? "SOUND ON" : "SOUND OFF"}
+            ♪ {sound ? "ON" : "OFF"}
           </HandButton>
 
           {/* Mobile Menu Button */}
@@ -132,6 +147,24 @@ export function Header({
                 {item.label}
               </HandButton>
             ))}
+          </div>
+
+          <div
+            style={{
+              marginTop: "0.9rem",
+              display: "flex",
+              justifyContent: "center",
+              gap: "0.75rem",
+            }}
+          >
+            <HandButton
+              variant="secondary"
+              size="sm"
+              onClick={onToggleTheme}
+              style={{ width: "100%" }}
+            >
+              {theme === "dark" ? "☀️ SWITCH TO LIGHT" : "🌙 SWITCH TO DARK"}
+            </HandButton>
           </div>
         </div>
       )}

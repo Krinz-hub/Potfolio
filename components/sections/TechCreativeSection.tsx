@@ -31,7 +31,7 @@ export function TechCreativeSection({
           style={{
             fontFamily: "var(--font-body)",
             fontSize: "1.45rem",
-            color: "#444",
+            color: "var(--fg-muted)",
             maxWidth: "750px",
             marginBottom: "2rem",
           }}
@@ -101,7 +101,7 @@ export function TechCreativeSection({
               style={{
                 fontFamily: "var(--font-heading)",
                 fontSize: "1.1rem",
-                color: "#666",
+                color: "var(--fg-subtle)",
               }}
             >
               DEV&apos;S NOTE

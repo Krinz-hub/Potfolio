@@ -79,7 +79,7 @@ export function SkillsSection({
                       style={{
                         fontFamily: "var(--font-heading)",
                         fontSize: "1.1rem",
-                        color: isSelected ? "var(--accent-marker)" : "#888",
+                        color: isSelected ? "var(--accent-marker)" : "var(--fg-subtle)",
                         fontWeight: "bold",
                       }}
                     >
@@ -176,7 +176,7 @@ export function SkillsSection({
                   fontFamily: "var(--font-body)",
                   fontSize: "1.4rem",
                   lineHeight: 1.6,
-                  color: "#333",
+                  color: "var(--fg-pencil)",
                   marginBottom: "2rem",
                 }}
               >
@@ -189,7 +189,7 @@ export function SkillsSection({
                 style={{
                   fontFamily: "var(--font-heading)",
                   fontSize: "1.15rem",
-                  color: "#666",
+                  color: "var(--fg-muted)",
                   marginBottom: "0.75rem",
                 }}
               >

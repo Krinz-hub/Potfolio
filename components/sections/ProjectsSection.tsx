@@ -87,7 +87,7 @@ export function ProjectsSection({
                       style={{
                         fontFamily: "var(--font-heading)",
                         fontSize: "1.1rem",
-                        color: isSelected ? "var(--accent-marker)" : "#888",
+                        color: isSelected ? "var(--accent-marker)" : "var(--fg-subtle)",
                         fontWeight: "bold",
                       }}
                     >
@@ -107,7 +107,7 @@ export function ProjectsSection({
                         style={{
                           fontFamily: "var(--font-body)",
                           fontSize: "0.95rem",
-                          color: "#666",
+                          color: "var(--fg-muted)",
                         }}
                       >
                         {item.category.join(" • ")}
@@ -132,7 +132,7 @@ export function ProjectsSection({
                       style={{
                         fontFamily: "var(--font-heading)",
                         fontSize: "1.2rem",
-                        color: isSelected ? "var(--accent-marker)" : "#888",
+                        color: isSelected ? "var(--accent-marker)" : "var(--fg-subtle)",
                       }}
                     >
                       →
@@ -204,7 +204,7 @@ export function ProjectsSection({
                 fontFamily: "var(--font-body)",
                 fontSize: "1.35rem",
                 lineHeight: 1.6,
-                color: "#333",
+                color: "var(--fg-pencil)",
                 marginBottom: "1.5rem",
               }}
             >
@@ -217,7 +217,7 @@ export function ProjectsSection({
                 border: "2px dashed var(--border-pencil)",
                 borderRadius: "var(--radius-wobbly)",
                 padding: "1.25rem",
-                backgroundColor: "#faf7f0",
+                backgroundColor: "var(--card-tint)",
                 marginBottom: "1.75rem",
                 position: "relative",
               }}
@@ -226,7 +226,7 @@ export function ProjectsSection({
                 style={{
                   fontFamily: "var(--font-heading)",
                   fontSize: "1.05rem",
-                  color: "#666",
+                  color: "var(--fg-muted)",
                   marginBottom: "0.6rem",
                 }}
               >
