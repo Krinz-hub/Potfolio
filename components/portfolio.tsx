@@ -15,6 +15,7 @@ import { experiments } from "@/data/experiments";
 import { profile } from "@/data/profile";
 import { projects } from "@/data/projects";
 import { skills } from "@/data/skills";
+import { usePinnedProjects } from "@/hooks/usePinnedProjects";
 
 const techDescription: Record<string, string> = {
   AI: "Practical intelligence for useful tools that simplify complex workflows.",
@@ -28,12 +29,33 @@ const techDescription: Record<string, string> = {
 };
 
 export function Portfolio() {
-  const [activeProject, setActiveProject] = useState(0);
+  const {
+    projects: syncedProjects,
+    activeProject,
+    setActiveProject,
+    isSyncing: isProjectsSyncing,
+    lastSyncedText: projectsLastSyncedText,
+    refresh: refreshProjects,
+  } = usePinnedProjects({
+    username: profile.social.githubUsername || "Krinz-hub",
+    initialProjects: projects,
+  });
   const [activeSkill, setActiveSkill] = useState(0);
   const [activeTech, setActiveTech] = useState("AI");
   const [activeLab, setActiveLab] = useState<ExperimentItem | null>(null);
   const [sound, setSound] = useState(false);
-  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [theme, setTheme] = useState<"light" | "dark">(() => {
+    if (typeof window === "undefined") return "light";
+    try {
+      const saved = localStorage.getItem("dk-theme") as "light" | "dark" | null;
+      if (saved) return saved;
+      return window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+    } catch {
+      return "light";
+    }
+  });
   const [menuOpen, setMenuOpen] = useState(false);
   const [progress, setProgress] = useState(0);
   const [achievement, setAchievement] = useState<string | null>(null);
@@ -96,7 +118,6 @@ export function Portfolio() {
       (window.matchMedia("(prefers-color-scheme: dark)").matches
         ? "dark"
         : "light");
-    setTheme(initialTheme);
     document.documentElement.setAttribute("data-theme", initialTheme);
     document.documentElement.style.colorScheme = initialTheme;
 
@@ -271,10 +292,17 @@ export function Portfolio() {
 
         {/* 03 / Projects Section */}
         <ProjectsSection
-          projects={projects}
+          projects={syncedProjects}
           activeProject={activeProject}
           isTransitioning={projectTransition}
           onSelectProject={selectProject}
+          isSyncing={isProjectsSyncing}
+          lastSyncedText={projectsLastSyncedText}
+          onRefresh={() => {
+            playFeedback(600);
+            refreshProjects();
+          }}
+          githubUsername={profile.social.githubUsername || "Krinz-hub"}
         />
 
         {/* 04 / Build Log Section */}

@@ -8,6 +8,7 @@ export const profile = {
   email: "dknsakrin@gmail.com",
   social: {
     github: "https://github.com/Krinz-hub",
+    githubUsername: "Krinz-hub",
     linkedin: "https://www.linkedin.com/in/devkansakar/",
     Youtube: "https://www.youtube.com/@Dev_kansakar",
   },

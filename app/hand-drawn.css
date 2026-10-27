@@ -654,6 +654,37 @@ button {
   }
 }
 
+/* GitHub Sync Animations */
+@keyframes hand-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.hand-spin {
+  animation: hand-spin 1s linear infinite;
+  display: inline-block;
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(0.8);
+  }
+}
+
+.hand-pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+  display: inline-block;
+}
+
 /* Secret Mode Banner */
 .hand-secret-mode {
   position: fixed;
