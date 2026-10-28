@@ -68,22 +68,6 @@ export function Header({
 
         {/* Controls */}
         <div className="hand-controls">
-          <span
-            className="hand-tag hand-tag-yellow"
-            style={{ fontSize: "0.95rem", padding: "0.2rem 0.6rem" }}
-          >
-            <span
-              style={{
-                display: "inline-block",
-                width: "8px",
-                height: "8px",
-                borderRadius: "50%",
-                backgroundColor: "#2b825b",
-              }}
-            />
-            ONLINE
-          </span>
-
           {/* Theme Toggle Button */}
           <HandButton
             variant="secondary"
